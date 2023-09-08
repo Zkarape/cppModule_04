@@ -1,7 +1,7 @@
 #include "Cat.hpp"
 
 Cat::Cat() 
-    :   Animal("Cat"), 
+    :   A_Animal(), 
         _b(new Brain())
 {
     std::cout << "Cat default constructor called!!" << std::endl;
@@ -9,7 +9,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat &cat):_b(new Brain(*cat._b))
 {
-    std::cout << "Cat class's copy constructor called!!" << std::endl;
+    std::cout << "Cat copy constructor called!!" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &c)

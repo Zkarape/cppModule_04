@@ -36,5 +36,5 @@ const std::string &Animal::getType() const
 
 Animal::~Animal()
 {
-    std::cout << this->_type << " Animalll destructor called!!" << std::endl;
+    std::cout << "Animal destructor called!!" << std::endl;
 }

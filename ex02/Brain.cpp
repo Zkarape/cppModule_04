@@ -5,7 +5,7 @@ Brain::Brain()
     this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = "Zheno's brain";
-    std::cout << "Brain's default constructor called!!" << std::endl;
+    std::cout << "Brain default constructor called!!" << std::endl;
 }
 
 Brain::Brain(const Brain &b)

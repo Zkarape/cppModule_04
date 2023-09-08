@@ -2,16 +2,19 @@
 #define DOG_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "A_Animal.hpp"
 
-class Dog : public Animal
+class Dog : public A_Animal
 {
+private:
+    Brain *_b;
 public:
     Dog();
+    Dog(const std::string &);
     Dog(const Dog &);
     Dog &operator=(const Dog &a);
     virtual void makeSound() const;
-    ~Dog();
+    virtual ~Dog();
 };
 
 #endif

@@ -1,19 +1,19 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal() 
 {
-    std::cout << "WrongAnimal class's default constructor called!!" << std::endl;
+    std::cout << "WrongAnimal default constructor called!!" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const std::string &type) : _type(type)
 {
-    std::cout << "WrongAnimal class's parametrized constructor called!!" << std::endl;
+    std::cout << "WrongAnimal parametrized constructor called!!" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
     *this = copy;
-    std::cout << "WrongAnimal class's copy constructor called!!" << std::endl;
+    std::cout << "WrongAnimal copy constructor called!!" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &assign)
@@ -36,5 +36,5 @@ const std::string &WrongAnimal::getType() const
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "WrongAnimal class's default destructor called!!" << std::endl;
+    std::cout << "WrongAnimal default destructor called!!" << std::endl;
 }

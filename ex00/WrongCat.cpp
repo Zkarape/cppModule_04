@@ -1,13 +1,8 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
     std::cout << "WrongCat default constructor called!!" << std::endl;
-}
-
-WrongCat::WrongCat(const std::string &type) : WrongAnimal("WrongCat")
-{
-    std::cout << "WrongCat class's parametrized constructor called!!" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &cat)
@@ -16,7 +11,7 @@ WrongCat::WrongCat(const WrongCat &cat)
     std::cout << "WrongCat class's copy constructor called!!" << std::endl;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &c)
+WrongCat &WrongCat::operator=(const WrongCat &)
 {
     return (*this);
 }

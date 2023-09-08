@@ -1,15 +1,20 @@
 #include "Dog.hpp"
 
 Dog::Dog() 
-    :   Animal("Dog"), 
+    :   A_Animal(), 
         _b(new Brain())
 {
     std::cout << "Dog default constructor called!!" << std::endl;
 }
 
+Dog::Dog(const std::string &type) : A_Animal(type), _b(new Brain())
+{
+    std::cout << "Dog parametrized constructor called!!" << std::endl;
+}
+
 Dog::Dog(const Dog &dog):_b(new Brain(*dog._b))
 {
-    std::cout << "Dog class's copy constructor called!!" << std::endl;
+    std::cout << "Dog copy constructor called!!" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &c)

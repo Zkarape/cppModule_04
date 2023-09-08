@@ -1,13 +1,8 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
     std::cout << "Dog default constructor called!!" << std::endl;
-}
-
-Dog::Dog(const std::string &type) : Animal("Dog")
-{
-    std::cout << "Dog class's parametrized constructor called!!" << std::endl;
 }
 
 Dog::Dog(const Dog &dog)
@@ -16,7 +11,7 @@ Dog::Dog(const Dog &dog)
     std::cout << "Dog class's copy constructor called!!" << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &c)
+Dog &Dog::operator=(const Dog &)
 {
     return (*this);
 }

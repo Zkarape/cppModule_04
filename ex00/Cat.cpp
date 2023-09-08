@@ -1,13 +1,8 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal("Cat")
 {
     std::cout << "Cat default constructor called!!" << std::endl;
-}
-
-Cat::Cat(const std::string &type) : Animal("Cat")
-{
-    std::cout << "Cat class's parametrized constructor called!!" << std::endl;
 }
 
 Cat::Cat(const Cat &cat)
@@ -16,7 +11,7 @@ Cat::Cat(const Cat &cat)
     std::cout << "Cat class's copy constructor called!!" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &c)
+Cat &Cat::operator=(const Cat &)
 {
     return (*this);
 }
@@ -28,5 +23,5 @@ void Cat::makeSound() const
 
 Cat::~Cat()
 {
-    std::cout << this->_type << "Cattt destructor called!!" << std::endl;
+    std::cout << "Cat destructor called!!" << std::endl;
 }

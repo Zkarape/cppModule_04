@@ -7,7 +7,6 @@ class Cat : public Animal
 {
 public:
     Cat();
-    Cat(const std::string &);
     Cat(const Cat&);
     Cat &operator=(const Cat &a);
     virtual void makeSound() const; //override;
