@@ -1,6 +1,12 @@
 #include "Character.hpp"
 
-Character::Character() {}
+Character::Character()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        _inventory[i] = NULL;
+    }
+}
 
 Character::Character(const std::string &name) : _name(name)
 {
@@ -52,7 +58,7 @@ void Character::equip(AMateria *m)
     while (++i < 4)
     {
         if (_inventory[i] == m)
-            return ;
+            return;
     }
     i = 0;
     while (i < 4 && _inventory[i] != 0)
