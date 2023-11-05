@@ -15,7 +15,7 @@ Character::Character(const Character &copy) : _name(copy._name)
 {
     for (int i = 0; i < 4; i++)
     {
-        _inventory[i] = copy._inventory[i]->clone();//so beautiful connection
+        _inventory[i] = copy._inventory[i]->clone(); // so beautiful connection!!
     }
 }
 
@@ -23,11 +23,11 @@ Character &Character::operator=(const Character &assign)
 {
     if (this != &assign)
     {
-        _name = assign._name;
+        _name = assign._name; ////////////////
         for (int i = 0; i < 4; i++)
         {
             delete _inventory[i];
-            this->_inventory[i] = assign._inventory[i]->clone();//do I need to check for nullptr??
+            this->_inventory[i] = assign._inventory[i]->clone(); // do I need to check for nullptr??
         }
     }
     return *this;
@@ -48,7 +48,7 @@ void Character::equip(AMateria *m)
         i++;
     if (i >= 4)
     {
-        std::cout << _name << " can't equip more than 4 Materia";
+        std::cout << _name << " can't equip more than 4 Materias";
         return;
     }
     _inventory[i] = m;
@@ -57,11 +57,30 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
+    if (idx < 0 || idx >= 4 || !(this->_inventory)[idx])
+    {
+        std::cout << "Nothing found to unequip at index " << idx << std::endl;
+        return;
+    }
+    // AMateria *keep = _inventory[idx];  //in subjects tells to keep ?)
+    //std::cout << this->_name << " unequipped " << keep->getType() << " at slot "<< idx << "\n"; //maybe for printing??
+    _inventory[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
+    if (idx < 0 || idx >= 4 || !(this->_inventory)[idx])
+    {
+        std::cout << "Nothing found to use at index " << idx << std::endl;
+        return;
+    }
     _inventory[idx]->use(target);
 }
 
-Character::~Character() {}
+Character::~Character()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        delete this->_inventory[i];
+    }
+}

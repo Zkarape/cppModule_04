@@ -4,6 +4,8 @@ Cure::Cure() : AMateria("cure") {}
 
 Cure::Cure(const Cure &copy) : AMateria(copy._type) {}
 
+// Cure::Cure(const Cure &copy) : AMateria(), _type(copy.getType()) {}
+
 Cure &Cure::operator=(const Cure &assign)
 {
     return (*this);
