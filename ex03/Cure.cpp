@@ -8,6 +8,7 @@ Cure::Cure(const Cure &copy) : AMateria(copy._type) {}
 
 Cure &Cure::operator=(const Cure &assign)
 {
+	(void)assign;///////////////////
     return (*this);
 }
 

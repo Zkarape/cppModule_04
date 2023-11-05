@@ -4,7 +4,6 @@ Character::Character() {}
 
 Character::Character(const std::string &name) : _name(name)
 {
-    std::cout << "A character named \"" << _name << "\" was created\n";
     for (int i = 0; i < 4; i++)
     {
         _inventory[i] = nullptr;
@@ -62,7 +61,7 @@ void Character::unequip(int idx)
         std::cout << "Nothing found to unequip at index " << idx << std::endl;
         return;
     }
-    // AMateria *keep = _inventory[idx];  //in subjects tells to keep ?)
+    // AMateria *keep = _inventory[idx];  //in subject tells to keep ?)
     //std::cout << this->_name << " unequipped " << keep->getType() << " at slot "<< idx << "\n"; //maybe for printing??
     _inventory[idx] = 0;
 }

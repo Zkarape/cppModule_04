@@ -6,7 +6,7 @@ public:
     Ice();
     Ice(const Ice &src);
     Ice &operator=(Ice const &src);
-    AMateria *clone() const override;
+    AMateria *clone() const;
     void use(ICharacter &);
     ~Ice();
 };

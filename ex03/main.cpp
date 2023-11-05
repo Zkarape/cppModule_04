@@ -1,4 +1,3 @@
-#include "AMateria.hpp"
 #include "MateriaSource.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"

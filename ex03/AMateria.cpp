@@ -1,7 +1,8 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria()
-{}
+AMateria::AMateria() {}
+
+AMateria::AMateria(std::string const &type) : _type(type) {}
 
 std::string const &AMateria::getType() const
 {
@@ -16,10 +17,12 @@ AMateria::AMateria(const AMateria &copy)
 AMateria &AMateria::operator=(const AMateria &assign)
 {
     this->_type = assign._type;
+    return (*this);
 }
 
-AMateria::AMateria(std::string const &type) : _type(type) {}
-
-void AMateria::use(ICharacter &target) {}
+void AMateria::use(ICharacter &target)
+{
+    std::cout << "AMateria is used by " << target.getName() << std::endl;
+}
 
 AMateria::~AMateria() {}

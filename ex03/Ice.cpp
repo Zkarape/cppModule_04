@@ -6,6 +6,7 @@ Ice::Ice(const Ice &copy) : AMateria(copy._type) {}
 
 Ice &Ice::operator=(const Ice &assign)
 {
+    (void)assign;
     return (*this);
 }
 

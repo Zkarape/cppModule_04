@@ -1,4 +1,4 @@
-NAME      = pureabstract
+NAME      = rpg
 
 CC        = c++ 
 
