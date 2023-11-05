@@ -6,7 +6,7 @@ Character::Character(const std::string &name) : _name(name)
 {
     for (int i = 0; i < 4; i++)
     {
-        _inventory[i] = nullptr;
+        _inventory[i] = NULL;
     }
 }
 
@@ -14,7 +14,8 @@ Character::Character(const Character &copy) : _name(copy._name)
 {
     for (int i = 0; i < 4; i++)
     {
-        _inventory[i] = copy._inventory[i]->clone(); // so beautiful connection!!
+        if (copy._inventory[i])
+            _inventory[i] = copy._inventory[i]->clone();
     }
 }
 
@@ -22,11 +23,16 @@ Character &Character::operator=(const Character &assign)
 {
     if (this != &assign)
     {
-        _name = assign._name; ////////////////
+        _name = assign._name;
         for (int i = 0; i < 4; i++)
         {
-            delete _inventory[i];
-            this->_inventory[i] = assign._inventory[i]->clone(); // do I need to check for nullptr??
+            if (_inventory[i])
+            {
+                delete _inventory[i];
+                this->_inventory[i] = NULL;
+            }
+            if (assign._inventory[i])
+                this->_inventory[i] = assign._inventory[i]->clone();
         }
     }
     return *this;
@@ -39,10 +45,16 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-    int i = 0;
+    int i = -1;
 
     if (!m)
         return;
+    while (++i < 4)
+    {
+        if (_inventory[i] == m)
+            return ;
+    }
+    i = 0;
     while (i < 4 && _inventory[i] != 0)
         i++;
     if (i >= 4)
@@ -61,9 +73,8 @@ void Character::unequip(int idx)
         std::cout << "Nothing found to unequip at index " << idx << std::endl;
         return;
     }
-    // AMateria *keep = _inventory[idx];  //in subject tells to keep ?)
-    //std::cout << this->_name << " unequipped " << keep->getType() << " at slot "<< idx << "\n"; //maybe for printing??
-    _inventory[idx] = 0;
+    std::cout << this->_name << " unequipped " << _inventory[idx]->getType() << " at slot " << idx << "\n"; // maybe for printing??
+    _inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)

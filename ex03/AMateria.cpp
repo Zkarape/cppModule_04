@@ -25,4 +25,7 @@ void AMateria::use(ICharacter &target)
     std::cout << "AMateria is used by " << target.getName() << std::endl;
 }
 
-AMateria::~AMateria() {}
+AMateria::~AMateria()
+{
+    std::cout << "Destructor is called" << std::endl;
+}
